@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>erro500</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+  	<meta name="format-detection"content="telephone=no, email=no" />
+  	<meta name="full-screen" content="yes">
+  	<meta name="x5-fullscreen" content="true">
+  	<style>
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+		}
+
+		.max-width {
+			width: 200%;
+			height: 200%;
+			position: absolute;
+			left: -50%;
+			top: -50%;
+			-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+		}
+		
+		.wave-wrap {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 128px;
+			/*margin-top: -64px;*/
+		}
+
+		.wave {
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 100px;
+			/*background-image: url(./images/wave.png);*/
+			background-position: 0 0;
+			background-repeat: repeat-x;
+			background-size: 200px 100px;
+		}
+
+		.wave1 {
+			z-index: 0;
+			top: 0;
+			/*background-position: 0 0;*/
+			background-image: url(./images/blue3.png);
+		}
+
+		.wave2 {
+			z-index: 1;
+			top: 4px;
+			/*background-position: 0 -24px;*/
+			background-image: url(./images/blue2.png);
+		}
+
+		.wave3 {
+			height: 96px;
+			z-index: 3;
+			top: 8px;
+			/*background-position: 0 -48px;*/
+			background-image: url(./images/blue1.png);
+		}
+
+		.wave {
+			animation: wave-animation 1s infinite linear;
+			-webkit-animation: wave-animation 1s infinite linear;
+		}
+
+		/* image */
+
+		.wave-wrap img {
+			position: absolute;
+			/*left: 50%;*/
+		}
+
+		.img5 {
+			left: 35%;
+			z-index: 2;
+			top: 10px;
+			width: 40px;
+			/*height: 53px;*/
+			margin-left: -35px;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-webkit-perspective: 1000;
+			perspective: 1000;
+			-webkit-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+
+		.elephant {
+			left: 50%;
+			z-index: 4;
+			top: -40px;
+			width: 111px;
+			/*height: 98px;*/
+			margin-left: -58px;
+		}
+
+		.img0 {
+			left: 65%;
+			z-index: 4;
+			top: 10px;
+			width: 46px;
+			margin-left: -8px;
+		}
+
+		/* water */
+
+		.water {
+			position: relative;
+			/*top: 50%;*/
+			-webkit-transform: translate3d(0,100%,0);
+			transform: translate3d(0,100%,0);
+			height: 50%;
+			padding-top: 100px;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			background-color: #08b0fe;
+			text-align: center;
+			/*opacity: 0.9;*/
+			-webkit-background-clip: content;
+			-moz-background-clip: content;
+			background-clip: content;
+			-webkit-backface-visibility: hidden;
+			backface-visibility: hidden;
+			-webkit-perspective: 1000;
+			perspective: 1000;
+		}
+
+		.water-fixed {
+			/*position: absolute;*/
+			top: -50%;
+		}
+
+		.water .msg {
+			color: #fff;
+			line-height: 1.5;
+		}
+		
+		.water .btn {
+			display: inline-block;
+			color: #fff;
+			background-color: #81c784;
+			border-bottom: 2px solid #64b468;
+			padding: 3px;
+			font-size: 16px;
+			text-decoration: none;
+			padding: 16px 14px;
+			border-radius: 7px;
+			margin-top: 25px;
+		}
+
+		/* animation class */
+
+		.beforeFall {
+			-webkit-animation: beforeFall 2s;
+		    animation: beforeFall 2s;
+		    -webkit-animation-timing-function: cubic-bezier(0.55,0.1,0.35,1);
+		    animation-timing-function: cubic-bezier(0.55,0.1,0.35,1);
+		}
+
+		.afterFall {
+			-webkit-animation: afterFall 2s;
+			animation: afterFall 2s;
+		}
+
+		.upDown {
+			-webkit-transform: translate(0, 5px);
+			transform: translate(0, 5px);
+			-webkit-animation: upDown 2s infinite;
+		    animation: upDown 2s infinite;
+		}
+
+		.downUp {
+			-webkit-transform: translate(0, -3px);
+			transform: translate(0, -3px);
+			-webkit-animation: downUp 2s infinite;
+		    animation: downUp 2s infinite;
+		}
+
+		.clickDown {
+			-webkit-animation: clickDown 2s ease-in-out;
+		    animation: clickDown 2s ease-in-out;
+		}	
+
+		@-webkit-keyframes wave-animation {
+		  0% {
+		    background-position: 0 bottom;
+		  }
+
+		  100% {
+		    background-position: 200px bottom;
+		  }
+		}
+
+		@-webkit-keyframes upDown
+		{
+		  0% {-webkit-transform: translate(0, 5px); transform: translate(0, 5px);}
+		  50% {-webkit-transform: translate(0, -5px); transform: translate(0, -5px);}
+		}
+
+		@-webkit-keyframes downUp
+		{
+		  0% {-webkit-transform: translate(0, -5px); transform: translate(0, -3px);}
+		  50% {-webkit-transform: translate(0, 5px); transform: translate(0, 3px);}
+		}
+
+		@-webkit-keyframes beforeFall
+		{
+		  0% {-webkit-transform: translate(0, -240px); transform: translate(0, -240px);}
+		  100% {-webkit-transform: translate(0, 40px); transform: translate(0, 40px);}
+		}
+
+		@-webkit-keyframes afterFall
+		{
+		  0% {-webkit-transform: translate(0, 40px); transform: translate(0, 40px);}
+		  100% {-webkit-transform: translate(0, -3px); transform: translate(0, -3px);}
+		}
+
+		@-webkit-keyframes clickDown
+		{
+		  50% {-webkit-transform: translate(0, 40px); transform: translate(0, 40px);}
+		  100% {-webkit-transform: translate(0, 5px); transform: translate(0, 5px);}
+		}
+
+		@media screen and (min-width: 640px) {
+			.wave {
+				height: 220px;
+				background-size: 200px 220px;
+				margin-top: -25px;
+				animation: wave-animation 1.2s infinite linear;
+				-webkit-animation: wave-animation 1.2s infinite linear;
+			}
+
+			.img5 {
+				width: 55px;
+			}
+
+			.elephant {
+				width: 130px;
+			}
+
+			.img0 {
+				width: 70px;
+			}
+		}
+  	</style>
+</head>
+<body>
+	<div class="max-width">
+		<div class="wave-wrap">
+			<img class="img5" src="./images/5.png" alt="">
+			<img class="elephant upDown" src="./images/elephant.png" alt="" data-click="1">
+			<img class="img0 downUp" src="./images/0.png" alt="" data-click="1">
+			<div class="wave wave1"></div>
+			<div class="wave wave2"></div>
+			<div class="wave wave3"></div>
+		</div>
+		<div class="water">
+			<p class="msg">你访问的页面溺水啦<br>造成不便尽请见谅</p>
+			<a href="" class="btn">回上一页吧</a>
+		</div>
+	</div>
+	
+	<script src="./zepto.min.js"></script>
+	<script>
+		var standard = 0;
+		var playBool = false;
+
+		$('body').on('touchmove', function(e){
+			e.preventDefault();
+		})
+
+		$('.img5').addClass('beforeFall');
+		setTimeout(function() {
+			$('.img5').removeClass('beforeFall').addClass('afterFall');
+			setTimeout(function() {
+				$('.img5').removeClass('afterFall').addClass('downUp');
+				// $('.img5').data('click', '1');
+				gravityPlay();
+			}, 2000)
+		}, 2000);
+
+		// $('.wave-wrap img').on('click', function() {
+		// 	var elm = $(this);
+		// 	console.log(elm.data('click'));
+		// 	if (elm.data('click') == 1) {
+		// 		elm.data('click', '0');
+		// 		elm.addClass('clickDown');
+		// 		setTimeout(function() {
+		// 			elm.removeClass('clickDown');
+		// 			elm.data('click', '1');
+		// 		}, 2000);
+		// 	};
+		// })
+
+		function gravityPlay(){
+          window.addEventListener("deviceorientation", function(e) {
+            if (!playBool) {
+            	standard = e.beta;
+            	playBool = true;
+            };
+            // $('.water').html('beta: '+e.beta+'<br>gamma: '+e.gamma+'<br>alpha:'+e.alpha);
+            var x = e.beta > standard ? standard : e.beta,
+            	y = e.gamma,
+            	// z = Math.abs(180 - e.alpha) > 90,
+            	deg;
+            if (y < 0) {
+            	deg = (standard - x) * 90 / standard;
+            } else
+            if (y > 0) {
+            	deg = - (standard - x) * 90 / standard;
+            } else {
+            	deg = 0;
+            }
+            $('.max-width').css({'-webkit-transform': 'rotate(' + deg + 'deg)'});   
+
+          });
+        }
+	</script>
+</body>
+</html>
